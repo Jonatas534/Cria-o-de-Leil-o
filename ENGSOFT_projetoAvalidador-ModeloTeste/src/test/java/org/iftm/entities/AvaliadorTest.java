@@ -2,28 +2,37 @@ package org.iftm.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AvaliadorTest {
-
-	@Test
-	public void testarMenorLanceSemOrdem() {
+	private Usuario  joao;
+	private Usuario jose;
+	private Usuario  maria;
+	private Leilao leilao;
+	private Avaliador avaliador;
+	
+	@BeforeEach
+	public void instanciarObjetos() {
 		Usuario joao = new Usuario("João");
 		Usuario jose = new Usuario("Jose");
 		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
+		Leilao leilao = new Leilao("Plastaytion 3 novo");
 		Avaliador avaliador = new Avaliador();
+	}
+	@Test
+	public void testarMenorLanceSemOrdem() {
+		
 		
 		//Criar lances
-		;
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(jose, 400.0));
-		leiao.propoe(new Lance(maria, 250.0));
+		
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(maria, 250.0));
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -34,21 +43,17 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMaiorLanceSemOrdem() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+
 		
-		//Criar lances
-		;
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(jose, 400.0));
-		leiao.propoe(new Lance(maria, 250.0));
+		//Criar
+		
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(maria, 250.0));
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -59,22 +64,18 @@ class AvaliadorTest {
 
 	@Test
 	public void testarMenorLanceComOrdemCrescente() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+		
 		
 		//Criar lances
 		
-		leiao.propoe(new Lance(maria, 250.0));
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(maria, 250.0));
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(jose, 400.0));
 	
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -87,21 +88,17 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMaiorLanceComOrdemCrescente() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+	
 		
 		//Criar lances
-		leiao.propoe(new Lance(maria, 250.0));
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(maria, 250.0));
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(jose, 400.0));
 		
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -112,22 +109,18 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMenorLanceComOrdemDecrescente() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+	
 		
 		//Criar lances
 		
-		leiao.propoe(new Lance(jose, 400.0));
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(maria, 250.0));
+		leilao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(maria, 250.0));
 	
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -140,22 +133,18 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMaiorLanceComOrdemDecrescente() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+		
 		
 		//Criar lances
-		leiao.propoe(new Lance(jose, 400.0));
-		leiao.propoe(new Lance(joao, 300.0));
-		leiao.propoe(new Lance(maria, 250.0));
+		leilao.propoe(new Lance(jose, 400.0));
+		leilao.propoe(new Lance(joao, 300.0));
+		leilao.propoe(new Lance(maria, 250.0));
 		
 		
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -166,21 +155,17 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMenorLanceComUmLance() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+		
 		
 		//Criar lances
 		
 		
-		leiao.propoe(new Lance(maria, 250.0));
+		leilao.propoe(new Lance(maria, 250.0));
 	
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -190,18 +175,14 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMaiorLanceSemLance() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+		
 		
 		//Criar lances
 		
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
@@ -212,11 +193,7 @@ class AvaliadorTest {
 	
 	@Test
 	public void testarMenorLanceSemLance() {
-		Usuario joao = new Usuario("João");
-		Usuario jose = new Usuario("Jose");
-		Usuario maria = new Usuario("Maria");
-		Leilao leiao = new Leilao("Plastaytion 3 novo");
-		Avaliador avaliador = new Avaliador();
+	
 		
 		//Criar lances
 		
@@ -225,7 +202,7 @@ class AvaliadorTest {
 		
 		
 		//Execução
-		avaliador.avalia(leiao);
+		avaliador.avalia(leilao);
 		
 		//Comparações
 		
