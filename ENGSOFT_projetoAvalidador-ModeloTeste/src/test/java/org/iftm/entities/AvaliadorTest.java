@@ -146,7 +146,7 @@ class AvaliadorTest {
 		//Execução
 		avaliador.avalia(leilao);
 		
-		//Comparações
+		//Comparações entre pontos
 		
 		Double valorEsperado = 400.0;
 		Assertions.assertEquals(valorEsperado,avaliador.getMaiorLance(),0.0001);
